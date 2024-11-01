@@ -38,17 +38,13 @@ figure {
 
 hr {
     box-sizing: content-box;
-    height: 0;
-    overflow: visible;
-    border: 0;
-    display: block;
     height: 1px;
     background: rgba(69, 76, 76, 0.5);
     margin: 24px 0;
 }
 
 pre {
-    font-family: monospace, monospace;
+    font-family: monospace;
     font-size: 1em;
     margin: 24px 0;
     padding: 24px;
@@ -79,7 +75,7 @@ b, strong {
 }
 
 code, kbd, samp {
-    font-family: monospace, monospace;
+    font-family: monospace;
     font-size: 1em;
 }
 
