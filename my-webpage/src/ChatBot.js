@@ -1,6 +1,6 @@
 // src/Chatbot.js
 import React, { useState } from "react";
-import "./Chatbot.css";
+import "./chatbot.css";
 
 const Chatbot = () => {
   const [messages, setMessages] = useState([{ text: "Hello! How can I help you?", sender: "bot" }]);
