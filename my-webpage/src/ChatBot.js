@@ -1,6 +1,8 @@
 // src/Chatbot.js
 import React, { useState } from "react";
 import "./chatbot.css";
+import axios from "axios";
+
 
 const Chatbot = () => {
   const [messages, setMessages] = useState([{ text: "Hello! How can I help you?", sender: "bot" }]);
@@ -13,19 +15,32 @@ const Chatbot = () => {
     bye: "Goodbye! Have a nice day!",
   };
 
-  const handleSend = () => {
+  const handleSend = async () => {
     if (input.trim() === "") return;
-    
-    // Add user's message
+  
     const userMessage = { text: input, sender: "user" };
     setMessages([...messages, userMessage]);
-
-    // Simple response logic
-    const botResponseText = responses[input.toLowerCase()] || "I'm sorry, I don't understand that.";
-    const botMessage = { text: botResponseText, sender: "bot" };
+  
+    try {
+      const response = await axios.post("https://api.openai.com/v1/engines/davinci-codex/completions", {
+        prompt: input,
+        max_tokens: 50,
+        temperature: 0.7,
+      }, {
+        headers: {
+          "Authorization": `Bearer YOUR_OPENAI_API_KEY`
+        }
+      });
+  
+      const botResponseText = response.data.choices[0].text.trim();
+      const botMessage = { text: botResponseText, sender: "bot" };
+  
+      setMessages(prevMessages => [...prevMessages, userMessage, botMessage]);
+    } catch (error) {
+      console.error("Error fetching response:", error);
+    }
     
-    setMessages(prevMessages => [...prevMessages, userMessage, botMessage]);
-    setInput(""); // Clear input
+    setInput("");
   };
 
   return (
