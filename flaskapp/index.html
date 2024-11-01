@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Food Sharing</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Campus Food Sharing Platform</h1>
+        <nav>
+            <a href="#post-food">Post Food</a>
+            <a href="#request-food">Request Food</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="post-food">
+            <h2>Clubs: Post Available Food</h2>
+            <form id="foodForm">
+                <input type="text" id="foodItem" placeholder="Food Item" required>
+                <input type="number" id="quantity" placeholder="Quantity" required>
+                <input type="text" id="pickupTime" placeholder="Pickup Time" required>
+                <button type="submit">Post Food</button>
+            </form>
+            <div id="foodList"></div>
+        </section>
+
+        <section id="request-food">
+            <h2>Students: Request Food</h2>
+            <div id="foodRequests"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Campus Food Sharing</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
