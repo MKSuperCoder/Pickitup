@@ -1,5 +1,5 @@
 # Pickitup
-# Table of Contents
+## Table of Contents
 1. [What Is it](#WhatIsit)
 2. [Features](#example2)
 
