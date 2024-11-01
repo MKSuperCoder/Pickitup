@@ -1,4 +1,4 @@
-# Pickitup
+# PickItUp
 ## Table of Contents
 1. [What Is it](#WhatIsit)
 2. [Features](#example2)
