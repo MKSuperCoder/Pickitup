@@ -57,3 +57,33 @@ def deleteAll():
     cur.execute("DELETE FROM books")
     conn.commit()
     conn.close()
+
+
+#Insert Food-Value
+def insert_food(food_item):
+    # Insert a new food item into the food_items table
+    conn = sqlite3.connect(DB_FILE)
+    cur = conn.cursor()
+    cur.execute("""
+        INSERT INTO food_items (
+            item, quantity, pickup_time, time_posted, food_type, pending,
+            event_id, cuny_id, date, club_name, status, location, start_time, end_time
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    """, (
+        food_item.item,                    # Food item name
+        food_item.quantity,                # Quantity of food item
+        food_item.pickup_time,            # Pickup time for food
+        food_item.time_posted,            # Time item was posted
+        food_item.food_type,              # Type of food
+        food_item.pending,                 # Pending status
+        food_item.event_id,               # Associated event ID
+        food_item.cuny_id,                # CUNY ID of the poster
+        food_item.date,                   # Associated date
+        food_item.club_name,              # Club name
+        food_item.status,                  # Status of the food item
+        food_item.location,                # Location for pickup
+        food_item.start_time,              # Start time of the event
+        food_item.end_time                 # End time of the event
+    ))
+    conn.commit()                        # Commit changes to the database
+    conn.close()                         # Close the database connection
