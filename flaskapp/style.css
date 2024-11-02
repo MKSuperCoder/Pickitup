@@ -18,6 +18,10 @@ nav a {
     text-decoration: none;
 }
 
+nav a:hover {
+    text-decoration: underline;
+}
+
 main {
     padding: 20px;
 }
@@ -27,15 +31,31 @@ section {
     padding: 15px;
     margin: 10px 0;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-input {
+h2 {
+    margin-bottom: 10px;
+    color: #4CAF50;
+}
+
+input[type="text"],
+input[type="number"],
+select {
     display: block;
     margin: 10px 0;
     padding: 10px;
     width: 95%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
+input[type="text"]:hover,
+input[type="number"]:hover,
+select:hover {
+    border-color: #4CAF50; /* Change border color on hover */
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Subtle shadow */
+}
+
 
 button {
     background-color: #4CAF50;
@@ -43,10 +63,21 @@ button {
     border: none;
     padding: 10px;
     cursor: pointer;
+    width: 100%; /* Makes the button full-width */
 }
 
 button:hover {
     background-color: #45a049;
+}
+
+#foodList,
+#foodRequests,
+#formFeedback {
+    margin-top: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #f9f9f9;
 }
 
 footer {
@@ -58,4 +89,3 @@ footer {
     bottom: 0;
     width: 100%;
 }
-/* Add CSS styles for your web site here and use them in index.html. */
