@@ -1,5 +1,5 @@
 import sqlite3, random, datetime
-from models import User
+from models import Event
 
 DB_FILE="app.db"
 
@@ -13,14 +13,19 @@ def connect():
     conn.commit()
     conn.close()
 
-def insert(user):
+def insert(event):
     conn = sqlite3.connect(DB_FILE)
     cur = conn.cursor()
-    cur.execute("INSERT INTO users VALUES (?,?,?,?)", (
-        user.cuny_id,
-        user.username,
-        user.role,
-        user.created_at
+    cur.execute("INSERT INTO event VALUES (?,?,?,?)", (
+        event.date,
+        event.club_name,
+        event.location,
+        event.cuny_id,
+        event.start_time,
+        event.end_time,
+        event.food_item,
+        event.food_quantity
+        
     ))
     conn.commit()
     conn.close()
@@ -35,7 +40,7 @@ def view():
         event = Event(i[0], True if i[1] == 1 else False, i[2], i[3])
         events.append(event)
     conn.close()
-    return books
+    return events
 
 def update(book):
     conn = sqlite3.connect(DB_FILE)

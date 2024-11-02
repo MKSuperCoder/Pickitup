@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PickItUp</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <header>
@@ -15,32 +15,33 @@
     <main>
         <section id="post-food">
             <h2>Clubs: Post Available Food</h2>
-            <form id="foodForm">
+            <form id="foodForm" method="post" action="">
                 <label for="foodItem">Food Item</label>
-                <input type="text" id="foodItem" placeholder="e.g., Pizza" required> <!-- Input for food item name -->
+                <input type="text" id="foodItem" placeholder="e.g., Pizza" required  value="{{ request.form['foodItem'] }}">
 
                 <label for="quantity">Quantity</label>
-                <input type="number" id="quantity" placeholder="e.g., 10" required> <!-- Input for food item quantity -->
+                <input type="number" id="quantity" placeholder="e.g., 10" required value="{{ request.form['quantity'] }}">
 
                 <label for="cunyId">CUNY ID</label>
-                <input type="text" id="cunyId" placeholder="Your CUNY ID" required> <!-- Input for CUNY ID -->
+                <input type="text" id="cunyId" placeholder="Your CUNY ID" required value="{{ request.form['cunyId'] }}">
 
                 <label for="date">Date</label>
-                <input type="date" id="date" required> <!-- Input for associated date -->
+                <input type="date" id="date" required value="{{ request.form['date'] }}">
 
                 <label for="clubName">Club Name</label>
-                <input type="text" id="clubName" placeholder="e.g., Cooking Club" required> <!-- Input for club name -->
+                <input type="text" id="clubName" placeholder="e.g., Cooking Club" required value="{{ request.form['clubName'] }}">
 
                 <label for="location">Location</label>
-                <input type="text" id="location" placeholder="e.g., Room 101" required> <!-- Input for pickup location -->
+                <input type="text" id="location" placeholder="e.g., Room 101" required value="{{ request.form['location'] }}">
 
                 <label for="startTime">Post Time</label>
-                <input type="time" id="startTime" required> <!-- Input for event start time -->
+                <input type="time" id="startTime" required value="{{ request.form['startTime'] }}">
 
                 <label for="pickupTime">Pickup By Time</label>
-                <input type="time" id="pickupTime" required> <!-- Input for pickup time -->
+                <input type="time" id="pickupTime" required value="{{ request.form['pickupTime'] }}">
 
-                <button type="button" onclick="postFood()">Post Food</button> <!-- Button to submit the form -->
+                <button type="button" onclick="handleRequest('post')">Post Food</button>
+
             </form>            
             <div id="foodList"></div>
             <div id="formFeedback" style="display:none;"></div>
@@ -49,7 +50,6 @@
         <section id="request-food">
             <h2>Students: Request Food</h2>
 
-            <!-- Category Filter Dropdown -->
             <label for="category">Select Food Category:</label>
             <select id="category" onchange="filterOptions()">
                 <option value="all">All</option>
@@ -58,7 +58,6 @@
                 <option value="drinks">Drinks</option>
             </select>
 
-            <!-- Meal Selection Dropdown -->
             <div id="mealOptions" style="display: none;">
                 <label for="meals">What Kind of Meal Do You Want:</label>
                 <select id="meals">
@@ -68,7 +67,6 @@
                 </select>
             </div>
 
-            <!-- Snack and Drink Options Dropdown -->
             <div id="snackDrinkOptions">
                 <label for="foods">What Kind of Food Do You Want:</label>
                 <select name="foods" id="foods">
@@ -87,7 +85,6 @@
         <p>&copy; 2024 PickItUp</p>
     </footer>
 
-    <!-- Modal for Displaying Server Responses -->
     <div id="responseModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
@@ -96,9 +93,12 @@
         </div>
     </div>
 
-    <script src="foodRequests.js"></script>
-    <script src="post-validation.js"></script>
-    <script src="form.js"></script>
+    <!-- JavaScript file links -->
+    <script src="{{ url_for('static', filename='js/food-requests.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/post-validation.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/form.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.min.js') }}"></script>
+
     <script>
         function filterOptions() {
             var categoryDropdown = document.getElementById("category");
@@ -107,11 +107,11 @@
             var snackDrinkOptionsDiv = document.getElementById("snackDrinkOptions");
 
             if (selectedCategory === "meals") {
-                mealOptionsDiv.style.display = "block"; // Show meal options
-                snackDrinkOptionsDiv.style.display = "none"; // Hide snack/drink options
+                mealOptionsDiv.style.display = "block";
+                snackDrinkOptionsDiv.style.display = "none";
             } else {
-                mealOptionsDiv.style.display = "none"; // Hide meal options
-                snackDrinkOptionsDiv.style.display = "block"; // Show snack/drink options
+                mealOptionsDiv.style.display = "none";
+                snackDrinkOptionsDiv.style.display = "block";
             }
         }
     </script>
