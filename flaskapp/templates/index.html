@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PickItUp</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <header>
@@ -16,11 +16,16 @@
         <section id="post-food">
             <h2>Clubs: Post Available Food</h2>
             <form id="foodForm">
-                <input type="text" id="foodItem" placeholder="Food Item" required>
-                <input type="number" id="quantity" placeholder="Quantity" required>
-                <input type="text" id="pickupTime" placeholder="Pickup Time" required>
-                <button type="button" onclick="handleRequest('post')">Post Food</button>
-            </form>
+                <input type="text" id="foodItem" placeholder="Food Item" required>  <!-- Input for food item name -->
+                <input type="number" id="quantity" placeholder="Quantity" required>  <!-- Input for food item quantity -->
+                <input type="text" id="cunyId" placeholder="CUNY ID" required>  <!-- Input for CUNY ID -->
+                <input type="date" id="date" placeholder="Date" required>  <!-- Input for associated date -->
+                <input type="text" id="clubName" placeholder="Club Name" required>  <!-- Input for club name -->
+                <input type="text" id="location" placeholder="Location" required>  <!-- Input for pickup location -->
+                <input type="text" id="startTime" placeholder="Post Time" required>  <!-- Input for event start time -->
+                <input type="text" id="pickupTime" placeholder="Pickup By Time" required>  <!-- Input for pickup time -->
+                <button type="button" onclick="postFood()">Post Food</button>  <!-- Button to submit the form -->
+            </form>            
             <div id="foodList"></div>
             <div id="formFeedback" style="display:none;"></div>
         </section>
@@ -75,9 +80,9 @@
         </div>
     </div>
 
-    <script src="../static/js/foodRequests.js"></script>
-    <script src="../static/js/post-validation.js"></script>
-    <script src="../static/js/form.js"></script>
+    <script src="foodRequests.js"></script>
+    <script src="post-validation.js"></script>
+    <script src="form.js"></script>
     <script>
         function filterOptions() {
             var categoryDropdown = document.getElementById("category");
