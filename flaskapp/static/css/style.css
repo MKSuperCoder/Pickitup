@@ -132,3 +132,13 @@ input {
         padding: 8px; 
     }
 }
+
+.time-container {
+    display: flex; /* Use Flexbox to layout the children */
+    justify-content: space-between; /* Space between the inputs */
+    margin-bottom: 20px; /* Space below the container */
+}
+
+.time-container input {
+    width: 48%; /* Make each input take nearly half the width */
+}

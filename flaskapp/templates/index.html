@@ -35,11 +35,12 @@
                 <input type="text" id="location" placeholder="e.g., Fiterman 1001" required> <!-- Input for pickup location -->
 
                 <label for="startTime">Post Time</label>
+                <div class="time-container">
                 <input type="time" id="startTime" required> <!-- Input for event start time -->
 
                 <label for="pickupTime">Pickup By Time</label>
                 <input type="time" id="pickupTime" required> <!-- Input for pickup time -->
-
+                </div>
                 <button type="button" onclick="postFood()">Post Food</button> <!-- Button to submit the form -->
             </form>            
             <div id="foodList"></div>
