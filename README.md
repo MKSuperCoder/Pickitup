@@ -1,4 +1,4 @@
-# PickItUp - Leftover Cleanup Tool
+# **PickItUp** - Leftover Cleanup Tool
 ## Table of Contents
 1. [What Is it](#WhatIsit)
 2. [Features](#Features)
