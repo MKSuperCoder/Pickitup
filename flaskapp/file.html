@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Wando's Book Library</title>
     <link href="https://fonts.googleapis.com/css?family=Heebo:400,400i,500,700|Titillium+Web:600" rel="stylesheet">
     <link rel="stylesheet" href={{url_for('static', filename="css/style.css")}}>
     <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
@@ -636,46 +638,5 @@
 			launchModal();
 		}
 	</script>
-</body>
-</html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PickItUp</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>Campus Food Sharing Platform</h1>
-        <nav>
-            <a href="#post-food">Post Food</a>
-            <a href="#request-food">Request Food</a>
-        </nav>
-    </header>
-
-    <main>
-        <section id="post-food">
-            <h2>Clubs: Post Available Food</h2>
-            <form id="foodForm">
-                <input type="text" id="foodItem" placeholder="Food Item" required>
-                <input type="number" id="quantity" placeholder="Quantity" required>
-                <input type="text" id="pickupTime" placeholder="Pickup Time" required>
-                <button type="submit">Post Food</button>
-            </form>
-            <div id="foodList"></div>
-            <div id="formFeedback" style="display:none;"></div>
-        </section>
-
-        <section id="request-food">
-            <h2>Students: Request Food</h2>
-            <div id="foodRequests"></div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 PickItUp</p>
-    </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
