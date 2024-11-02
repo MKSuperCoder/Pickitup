@@ -19,7 +19,6 @@ function handleRequest(action) {
         feedback.style.display = 'block';
         return; // Stop further execution if validation fails
     }
-    feedback.innerText = "step 2";
 
     if (action === 'post') {
         // Create the data object for the POST request
@@ -33,6 +32,7 @@ function handleRequest(action) {
             startTime,
             pickupTime
         };
+        feedback.innerText = "trying to post";
         feedback.innerText = foodItem + quantity + cunyId + date + clubName + location + startTime + pickupTime;
         // Make the POST request to the server
         fetch('http://localhost:5000/event', { // Ensure the URL matches your server's endpoint
@@ -71,6 +71,7 @@ function handleRequest(action) {
         .catch((error) => {
             console.error('Error:', error);
             feedback.innerText = "Failed to post food." + error; 
+
             feedback.style.color = "red";
             feedback.style.display = 'block';
         });

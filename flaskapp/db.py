@@ -7,25 +7,35 @@ def getNewId():
     return random.getrandbits(28)
 
 def connect():
+    print("hello i am connecting")
     conn = sqlite3.connect(DB_FILE)
     cur = conn.cursor()
-    cur.execute("CREATE TABLE IF NOT EXISTS books (id INTEGER PRIMARY KEY, available BOOLEAN, title TEXT, timestamp TEXT)")
+    cur.execute('''
+                CREATE TABLE IF NOT EXISTS event (
+                date TEXT NOT NULL,
+                club_name TEXT NOT NULL,
+                location TEXT NOT NULL,
+                cuny_id INTEGER NOT NULL,
+                start_time TEXT NOT NULL,
+                pickup_time TEXT NOT NULL,
+                food_item TEXT NOT NULL,
+                food_quantity INTEGER NOT NULL
+            );''')
     conn.commit()
     conn.close()
-
+connect()
 def insert(event):
     conn = sqlite3.connect(DB_FILE)
     cur = conn.cursor()
-    cur.execute("INSERT INTO event VALUES (?,?,?,?)", (
+    cur.execute("INSERT INTO event VALUES (?,?,?,?,?,?,?,?)", (
         event.date,
         event.club_name,
         event.location,
         event.cuny_id,
         event.start_time,
-        event.end_time,
+        event.pickup_time,
         event.food_item,
-        event.food_quantity
-        
+        event.food_quantity 
     ))
     conn.commit()
     conn.close()

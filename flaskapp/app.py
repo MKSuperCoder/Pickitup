@@ -2,9 +2,13 @@ from flask import Flask, render_template, request, jsonify
 import os, re, datetime
 import db
 from models import Event
+import logging
+from logging import FileHandler
+
 
 
 app = Flask(__name__)
+app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 # create the database and table. Insert 10 test books into db
 # Do this only once to avoid inserting the test books into 
@@ -58,9 +62,12 @@ def post_food():
          food_item = food_item, 
          food_quantity = food_quantity )
     db.insert(event)
-    return render_template('index.html')
-    #return jsonify({"message": "Food posted successfully!", "data": event}), 201
+    return jsonify({"message": "Food posted successfully!", "data": event.serialize()}), 201
     
     
 if __name__ ==  '__main__':
-    app.run()
+    handler = FileHandler('app.log')  # Create a log file
+    handler.setLevel(logging.INFO)  # Set log level
+    app.logger.addHandler(handler)  # Add handler to Flask's logger
+
+    app.run(debug=True)  # Set to debug mode for detailed logs
