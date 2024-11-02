@@ -16,11 +16,19 @@
         <section id="post-food">
             <h2>Clubs: Post Available Food</h2>
             <form id="foodForm">
-                <input type="text" id="foodItem" placeholder="Food Item" required>
-                <input type="number" id="quantity" placeholder="Quantity" required>
-                <input type="text" id="pickupTime" placeholder="Pickup Time" required>
-                <button type="button" onclick="handleRequest('post')">Post Food</button>
-            </form>
+                <input type="text" id="foodItem" placeholder="Food Item" required>  <!-- Input for food item name -->
+                <input type="number" id="quantity" placeholder="Quantity" required>  <!-- Input for food item quantity -->
+                <input type="text" id="pickupTime" placeholder="Pickup Time" required>  <!-- Input for pickup time -->
+                <input type="text" id="eventId" placeholder="Event ID" required>  <!-- Input for event ID -->
+                <input type="text" id="cunyId" placeholder="CUNY ID" required>  <!-- Input for CUNY ID -->
+                <input type="date" id="date" placeholder="Date" required>  <!-- Input for associated date -->
+                <input type="text" id="clubName" placeholder="Club Name" required>  <!-- Input for club name -->
+                <input type="text" id="status" placeholder="Status" required>  <!-- Input for food item status -->
+                <input type="text" id="location" placeholder="Location" required>  <!-- Input for pickup location -->
+                <input type="text" id="startTime" placeholder="Start Time" required>  <!-- Input for event start time -->
+                <input type="text" id="endTime" placeholder="End Time" required>  <!-- Input for event end time -->
+                <button type="button" onclick="postFood()">Post Food</button>  <!-- Button to submit the form -->
+            </form>            
             <div id="foodList"></div>
             <div id="formFeedback" style="display:none;"></div>
         </section>

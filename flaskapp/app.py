@@ -27,39 +27,29 @@ def isValid(email):
       return False
 
 
-@app.route("/request", methods=['POST'])
-def postRequest():
-    req_data = request.get_json()
-    email = req_data['email']
-    if not isValid(email):
-        return jsonify({
-            'status': '422',
-            'res': 'failure',
-            'error': 'Invalid email format. Please enter a valid email address'
-        })
-    title = req_data['title']
-    bks = [b.serialize() for b in db.view()]
-    for b in bks:
-        if b['title'] == title:
-            return jsonify({
-                # 'error': '',
-                'res': f'Error ⛔❌! Book with title {title} is already in library!',
-                'status': '404'
-            })
-
-    bk = Book(db.getNewId(), True, title, datetime.datetime.now())
-    print('new book: ', bk.serialize())
-    db.insert(bk)
-    new_bks = [b.serialize() for b in db.view()]
-    print('books in lib: ', new_bks)
-    
-    return jsonify({
-                # 'error': '',
-                'res': bk.serialize(),
-                'status': '200',
-                'msg': 'Success creating a new book!👍😀'
-            })
-
+@app.route('/post_food', methods=['POST'])
+def post_food():
+    # Endpoint to handle posting of a new food item
+    data = request.get_json()  # Get JSON data from the request
+    food_item = FoodItem(
+        id=None,  # New item, so ID is set to None
+        item=data['item'],  # Food item name from request
+        quantity=data['quantity'],  # Quantity from request
+        pickup_time=data['pickup_time'],  # Pickup time from request
+        time_posted=str(datetime.datetime.now()),  # Current timestamp
+        food_type=data['food_type'],  # Food type from request
+        pending=False,  # Default to not pending when posted
+        event_id=data['event_id'],  # Event ID from request
+        cuny_id=data['cuny_id'],  # CUNY ID from request
+        date=data['date'],  # Date from request
+        club_name=data['club_name'],  # Club name from request
+        status=data['status'],  # Status from request
+        location=data['location'],  # Location from request
+        start_time=data['start_time'],  # Start time from request
+        end_time=data['end_time']  # End time from request
+    )
+    db.insert_food(food_item)  # Insert the food item into the database
+    return jsonify({'status': '200', 'message': 'Food posted successfully'})  # Return success message
 
 @app.route('/request', methods=['GET'])
 def getRequest():
@@ -178,3 +168,6 @@ def deleteRequest(id):
 
 if __name__ == '__main__':
     app.run()
+
+
+

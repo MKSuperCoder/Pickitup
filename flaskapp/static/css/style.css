@@ -1,84 +1,121 @@
+/* Basic page structure and font */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f8f8f8;
+    color: #333;
 }
 
+/* Header and navigation styling */
 header {
     background-color: #4CAF50;
     color: white;
-    padding: 10px 20px;
+    padding: 15px 20px;
     text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 nav a {
     margin: 0 15px;
     color: white;
     text-decoration: none;
+    font-weight: bold;
 }
 
 nav a:hover {
     text-decoration: underline;
 }
 
+/* Main content area */
 main {
     padding: 20px;
 }
 
+/* Section styling */
 section {
     background: white;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Heading styles */
 h2 {
     margin-bottom: 10px;
     color: #4CAF50;
+    font-size: 1.5em;
 }
 
+/* Form input fields styling */
 input[type="text"],
 input[type="number"],
+input[type="date"],
 select {
     display: block;
-    margin: 10px 0;
-    padding: 10px;
-    width: 95%;
+    margin: 10px 0 20px;
+    padding: 12px;
+    width: 100%;
+    max-width: 600px; /* Limits input width */
     border: 1px solid #ccc;
     border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+    color: #333;
 }
 
+/* Input hover and focus effects */
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+select:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+    outline: none;
+}
+
+/* Button styling */
 button {
     background-color: #4CAF50;
     color: white;
     border: none;
-    padding: 10px;
+    padding: 12px;
+    font-size: 1em;
     cursor: pointer;
-    width: 100%; /* Makes the button full-width */
+    width: 100%; /* Full-width */
+    max-width: 600px; /* Button width limit */
+    border-radius: 4px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
     background-color: #45a049;
 }
 
+/* List and feedback styling */
 #foodList,
 #foodRequests,
 #formFeedback {
     margin-top: 15px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #fafafa;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    font-size: 0.95em;
 }
 
+/* Footer styling */
 footer {
     text-align: center;
-    padding: 10px;
+    padding: 15px;
     background-color: #4CAF50;
     color: white;
-    position: relative;
+    position: fixed;
     bottom: 0;
     width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    font-size: 0.9em;
 }
