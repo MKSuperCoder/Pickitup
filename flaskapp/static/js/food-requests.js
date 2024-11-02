@@ -10,6 +10,8 @@ function handleRequest(action) {
     const pickupTime = document.getElementById('pickupTime').value.trim();
     const feedback = document.getElementById('formFeedback');
 
+    feedback.innerText = "step 1";
+
     // Input validation
     if (!foodItem || !quantity || !cunyId || !date || !clubName || !location || !startTime || !pickupTime || isNaN(quantity) || quantity <= 0) {
         feedback.innerText = "Please fill in all fields correctly.";
@@ -17,6 +19,7 @@ function handleRequest(action) {
         feedback.style.display = 'block';
         return; // Stop further execution if validation fails
     }
+    feedback.innerText = "step 2";
 
     if (action === 'post') {
         // Create the data object for the POST request
@@ -30,7 +33,7 @@ function handleRequest(action) {
             startTime,
             pickupTime
         };
-
+        feedback.innerText = foodItem + quantity + cunyId + date + clubName + location + startTime + pickupTime;
         // Make the POST request to the server
         fetch('http://localhost:5000/event', { // Ensure the URL matches your server's endpoint
             method: 'POST',
@@ -67,7 +70,7 @@ function handleRequest(action) {
         })
         .catch((error) => {
             console.error('Error:', error);
-            feedback.innerText = "Failed to post food.";
+            feedback.innerText = "Failed to post food." + error; 
             feedback.style.color = "red";
             feedback.style.display = 'block';
         });

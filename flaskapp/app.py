@@ -29,7 +29,7 @@ def isValid(email):
 
 
 food_items = []
-@app.route('/event', methods=['POST'])
+@app.route('/event', methods=['POST', 'GET'])
 def post_food():
     data = request.get_json()
     
@@ -44,7 +44,7 @@ def post_food():
     club_name = data["clubName"]
     location = data["location"] 
     start_time = data["startTime"]
-    end_time = data["endTime"]
+    pickup_time = data["pickupTime"]
     food_item = data["foodItem"]
     food_quantity = data["quantity"]
     
@@ -54,7 +54,7 @@ def post_food():
          club_name = club_name, 
          location = location, 
          start_time = start_time, 
-         end_time = end_time, 
+         pickup_time = pickup_time, 
          food_item = food_item, 
          food_quantity = food_quantity )
     db.insert(event)
