@@ -98,7 +98,7 @@ label{
     margin-bottom: 5px; 
 }
 input {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 @media (max-width: 768px) {
     header {
@@ -125,25 +125,28 @@ input {
     }
 
     section {
-        padding: 10px; 
+        padding: 5px; 
     }
 
     button {
-        padding: 8px; 
+        padding: 30px; 
     }
 }
 
 .time-container {
     display: flex; /* Use Flexbox to layout the children */
     justify-content: space-between; /* Space between the input pairs */
-    margin-bottom: 20px; /* Space below the container */
+    margin-bottom: 10px; /* Space below the container */
 }
 
 .time-item {
-    width: 48%; /* Set width for each time item */
+    width: 80%; /* Set width for each time item */
 }
 
 .time-item label {
     display: block; /* Ensure label is displayed above the input */
-    margin-bottom: 5px; /* Space between label and input */
+    margin-bottom: 2px; /* Space between label and input */
+}
+.time-item input{
+    padding: 3px;
 }
