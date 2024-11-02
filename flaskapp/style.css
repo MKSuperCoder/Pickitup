@@ -49,6 +49,13 @@ select {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+input[type="text"]:hover,
+input[type="number"]:hover,
+select:hover {
+    border-color: #4CAF50; /* Change border color on hover */
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Subtle shadow */
+}
+
 
 button {
     background-color: #4CAF50;

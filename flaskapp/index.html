@@ -5,10 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PickItUp</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 10%;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;
+            border-radius: 10px;
+            animation: fadeIn 0.5s;
+        }
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover, .close:focus {
+            color: black;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>PickItUp</h1>
+        <h1 style="display: inline; margin-right: 20px;">PickItUp</h1>
+        <span style="float: right; margin-top: 15px;">A Foodie's Favorite Tool</span>
         <nav>
             <a href="#post-food">Post Food</a>
             <a href="#request-food">Request Food</a>
@@ -22,7 +61,7 @@
                 <input type="text" id="foodItem" placeholder="Food Item" required>
                 <input type="number" id="quantity" placeholder="Quantity" required>
                 <input type="text" id="pickupTime" placeholder="Pickup Time" required>
-                <button type="submit">Post Food</button>
+                <button type="button" onclick="handleRequest('post')">Post Food</button>
             </form>
             <div id="foodList"></div>
             <div id="formFeedback" style="display:none;"></div>
@@ -40,16 +79,26 @@
                 <option value="drinks">Drinks</option>
             </select>
 
-            <!-- Food Selection Dropdown -->
-            <label for="food">What Kind of Food Do You Want:</label>
-            <select name="foods" id="foods">
-                <option data-category="meals" value="Pizza">Pizza</option>
-                <option data-category="snacks" value="Chips">Chips</option>
-                <option data-category="drinks" value="Water">Water</option>
-                <option data-category="drinks" value="Soda">Soda</option>
-                <option data-category="meals" value="Sandwich">Sandwich</option>
-                <option data-category="snacks" value="Granola Bar">Granola Bar</option>
-            </select>
+            <!-- Meal Selection Dropdown -->
+            <div id="mealOptions" style="display: none;">
+                <label for="meals">What Kind of Meal Do You Want:</label>
+                <select id="meals">
+                    <option value="Pizza">Pizza</option>
+                    <option value="Sandwich">Sandwich</option>
+                    <option value="Pasta">Pasta</option>
+                </select>
+            </div>
+
+            <!-- Snack and Drink Options Dropdown -->
+            <div id="snackDrinkOptions">
+                <label for="foods">What Kind of Food Do You Want:</label>
+                <select name="foods" id="foods">
+                    <option data-category="snacks" value="Chips">Chips</option>
+                    <option data-category="drinks" value="Water">Water</option>
+                    <option data-category="drinks" value="Soda">Soda</option>
+                    <option data-category="snacks" value="Granola Bar">Granola Bar</option>
+                </select>
+            </div>
 
             <div id="foodRequests"></div>
         </section>
@@ -59,21 +108,30 @@
         <p>&copy; 2024 PickItUp</p>
     </footer>
 
+    <!-- Modal for Displaying Server Responses -->
+    <div id="responseModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-heading">Server Response</h2>
+            <pre id="res-code">Response details will appear here...</pre>
+        </div>
+    </div>
+
     <script src="food-requests.js"></script>
     <script src="post-validation.js"></script>
     <script>
         function filterOptions() {
             var categoryDropdown = document.getElementById("category");
             var selectedCategory = categoryDropdown.value;
-            var foodDropdown = document.getElementById("foods");
-            var options = foodDropdown.options;
+            var mealOptionsDiv = document.getElementById("mealOptions");
+            var snackDrinkOptionsDiv = document.getElementById("snackDrinkOptions");
 
-            for (var i = 0; i < options.length; i++) {
-                if (selectedCategory === "all" || options[i].getAttribute("data-category") === selectedCategory) {
-                    options[i].style.display = "block"; // Show option
-                } else {
-                    options[i].style.display = "none"; // Hide option
-                }
+            if (selectedCategory === "meals") {
+                mealOptionsDiv.style.display = "block"; // Show meal options
+                snackDrinkOptionsDiv.style.display = "none"; // Hide snack/drink options
+            } else {
+                mealOptionsDiv.style.display = "none"; // Hide meal options
+                snackDrinkOptionsDiv.style.display = "block"; // Show snack/drink options
             }
         }
     </script>
