@@ -16,15 +16,31 @@
         <section id="post-food">
             <h2>Clubs: Post Available Food</h2>
             <form id="foodForm">
-                <input type="text" id="foodItem" placeholder="Food Item" required>  <!-- Input for food item name -->
-                <input type="number" id="quantity" placeholder="Quantity" required>  <!-- Input for food item quantity -->
-                <input type="text" id="cunyId" placeholder="CUNY ID" required>  <!-- Input for CUNY ID -->
-                <input type="date" id="date" placeholder="Date" required>  <!-- Input for associated date -->
-                <input type="text" id="clubName" placeholder="Club Name" required>  <!-- Input for club name -->
-                <input type="text" id="location" placeholder="Location" required>  <!-- Input for pickup location -->
-                <input type="text" id="startTime" placeholder="Post Time" required>  <!-- Input for event start time -->
-                <input type="text" id="pickupTime" placeholder="Pickup By Time" required>  <!-- Input for pickup time -->
-                <button type="button" onclick="postFood()">Post Food</button>  <!-- Button to submit the form -->
+                <label for="foodItem">Food Item</label>
+                <input type="text" id="foodItem" placeholder="e.g., Pizza" required> <!-- Input for food item name -->
+
+                <label for="quantity">Quantity</label>
+                <input type="number" id="quantity" placeholder="e.g., 10" required> <!-- Input for food item quantity -->
+
+                <label for="cunyId">CUNY ID</label>
+                <input type="text" id="cunyId" placeholder="Your CUNY ID" required> <!-- Input for CUNY ID -->
+
+                <label for="date">Date</label>
+                <input type="date" id="date" required> <!-- Input for associated date -->
+
+                <label for="clubName">Club Name</label>
+                <input type="text" id="clubName" placeholder="e.g., Cooking Club" required> <!-- Input for club name -->
+
+                <label for="location">Location</label>
+                <input type="text" id="location" placeholder="e.g., Room 101" required> <!-- Input for pickup location -->
+
+                <label for="startTime">Post Time</label>
+                <input type="time" id="startTime" required> <!-- Input for event start time -->
+
+                <label for="pickupTime">Pickup By Time</label>
+                <input type="time" id="pickupTime" required> <!-- Input for pickup time -->
+
+                <button type="button" onclick="postFood()">Post Food</button> <!-- Button to submit the form -->
             </form>            
             <div id="foodList"></div>
             <div id="formFeedback" style="display:none;"></div>
