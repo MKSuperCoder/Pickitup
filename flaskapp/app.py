@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 import os, re, datetime
 import db
-from models import Book
+from models import User, Event
 
 
 app = Flask(__name__)
@@ -9,7 +9,7 @@ app = Flask(__name__)
 # create the database and table. Insert 10 test books into db
 # Do this only once to avoid inserting the test books into 
 # the db multiple times
-if not os.path.isfile('books.db'):
+if not os.path.isfile('app.db'):
     db.connect()
 
 # route for landing page
