@@ -1,6 +1,6 @@
 # **PickItUp** - Leftover Cleanup Tool
 ## Table of Contents
-1. [What Is it](#WhatIsit)
+1. [What Is it](#What-Is-it)
 2. [Features](#Features)
 3. [Technologies Used](#Technologies-Used)
 2. [Future Improvements](#Future-Improvements)
@@ -19,4 +19,7 @@ A web based program that allows club officers to post any leftover food they hav
 ## Future Improvements
 - Intergrate with a Chatbot for better User Interface
 - Mobile Application
+- Allow User to properly request and take them to a new page with a better GUI
+- Google Maps API implementation
+- Admin Dashboard
  
