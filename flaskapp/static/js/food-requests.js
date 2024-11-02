@@ -32,7 +32,7 @@ function handleRequest(action) {
         };
 
         // Make the POST request to the server
-        fetch('http://localhost:5000/event', { // Ensure the URL matches your server's endpoint
+        fetch('http://localhost:5001/event', { // Ensure the URL matches your server's endpoint
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -67,7 +67,7 @@ function handleRequest(action) {
         })
         .catch((error) => {
             console.error('Error:', error);
-            feedback.innerText = "Failed to post food.";
+            feedback.innerText = "Failed to post food."+error;
             feedback.style.color = "red";
             feedback.style.display = 'block';
         });

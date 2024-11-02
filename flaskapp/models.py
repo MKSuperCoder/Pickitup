@@ -18,12 +18,10 @@ class User:
   
   
 class Event:
-  def __init__(self, event_id, cuny_id, date, club_name, status, location, start_time, end_time, food_item, food_quantity):
-    self.event_id = event_id
+  def __init__(self, cuny_id, date, club_name, location, start_time, end_time, food_item, food_quantity):
     self.cuny_id = cuny_id
     self.date = date
     self.club_name = club_name
-    self.status = status
     self.location = location 
     self.start_time = start_time
     self.end_time = end_time

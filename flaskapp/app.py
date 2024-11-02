@@ -44,7 +44,7 @@ def post_food():
     club_name = data["clubName"]
     location = data["location"] 
     start_time = data["startTime"]
-    end_time = data["endTime"]
+    end_time = data["pickupTime"]
     food_item = data["foodItem"]
     food_quantity = data["quantity"]
     
