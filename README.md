@@ -1,7 +1,9 @@
 # PickItUp
 ## Table of Contents
 1. [What Is it](#WhatIsit)
-2. [Features](#example2)
+2. [Features](#Features)
+3. [echnologies Used](#TechnologiesUsed)
+2. [Future Improvements](#FutureImprovements)
 
 ## What Is it
 A web based program that allows club officers to post any leftover food they have and connect them with students. Serves as an effective way for students and food to communicate. 
