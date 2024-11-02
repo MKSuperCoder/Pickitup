@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PickItUp</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>PickItUp</h1>
+        <nav>
+            <a href="#post-food">Post Food</a>
+            <a href="#request-food">Request Food</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="post-food">
+            <h2>Clubs: Post Available Food</h2>
+            <form id="foodForm">
+                <input type="text" id="foodItem" placeholder="Food Item" required>
+                <input type="number" id="quantity" placeholder="Quantity" required>
+                <input type="text" id="pickupTime" placeholder="Pickup Time" required>
+                <button type="submit">Post Food</button>
+            </form>
+            <div id="foodList"></div>
+            <div id="formFeedback" style="display:none;"></div>
+        </section>
+
+        <section id="request-food">
+            <h2>Students: Request Food</h2>
+
+            <!-- Category Filter Dropdown -->
+            <label for="category">Select Food Category:</label>
+            <select id="category" onchange="filterOptions()">
+                <option value="all">All</option>
+                <option value="meals">Meals</option>
+                <option value="snacks">Snacks</option>
+                <option value="drinks">Drinks</option>
+            </select>
+
+            <!-- Food Selection Dropdown -->
+            <label for="food">What Kind of Food Do You Want:</label>
+            <select name="foods" id="foods">
+                <option data-category="meals" value="Pizza">Pizza</option>
+                <option data-category="snacks" value="Chips">Chips</option>
+                <option data-category="drinks" value="Water">Water</option>
+                <option data-category="drinks" value="Soda">Soda</option>
+                <option data-category="meals" value="Sandwich">Sandwich</option>
+                <option data-category="snacks" value="Granola Bar">Granola Bar</option>
+            </select>
+
+            <div id="foodRequests"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 PickItUp</p>
+    </footer>
+
+    <script src="food-requests.js"></script>
+    <script src="post-validation.js"></script>
+    <script>
+        function filterOptions() {
+            var categoryDropdown = document.getElementById("category");
+            var selectedCategory = categoryDropdown.value;
+            var foodDropdown = document.getElementById("foods");
+            var options = foodDropdown.options;
+
+            for (var i = 0; i < options.length; i++) {
+                if (selectedCategory === "all" || options[i].getAttribute("data-category") === selectedCategory) {
+                    options[i].style.display = "block"; // Show option
+                } else {
+                    options[i].style.display = "none"; // Hide option
+                }
+            }
+        }
+    </script>
+</body>
+</html>
