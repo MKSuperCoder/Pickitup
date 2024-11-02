@@ -1,15 +1,26 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: Garamond, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f8f8f8;
 }
 
 header {
+    display: flex;
     background-color: #4CAF50;
     color: white;
-    padding: 10px 20px;
-    text-align: center;
+    padding: 25px 10px;
+    align-items: center;
+}
+header h1 {
+    position: absolute; /* Use absolute positioning */
+    left: 50%; /* Move to the center */
+    transform: translateX(-50%); /* Offset to perfectly center */
+    margin: 0; /* Remove default margin */
+}
+
+header span {
+    margin-left: auto; /* Ensure span is pushed to the right */
 }
 
 nav a {
@@ -28,14 +39,14 @@ main {
 
 section {
     background: white;
-    padding: 15px;
+    padding: 20px;
     margin: 10px 0;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     color: #4CAF50;
 }
 
@@ -81,4 +92,58 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%;
+}
+label{
+    display: block;
+    margin-bottom: 5px; 
+}
+input {
+    margin-bottom: 15px;
+}
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; 
+        padding: 20px 10px; 
+    }
+
+    header h1 {
+        font-size: 20px; 
+        position: relative; 
+        transform: none; 
+        left: auto; 
+        margin-bottom: 10px; 
+    }
+
+    header span {
+        margin-left: 0; 
+        text-align: center; 
+        width: 100%;
+    }
+
+    main {
+        padding: 10px; 
+    }
+
+    section {
+        padding: 10px; 
+    }
+
+    button {
+        padding: 8px; 
+    }
+}
+
+.time-container {
+    display: flex; /* Use Flexbox to layout the children */
+    justify-content: space-between; /* Space between the input pairs */
+    margin-bottom: 20px; /* Space below the container */
+}
+
+.time-item {
+    width: 48%; /* Set width for each time item */
+}
+
+.time-item label {
+    display: block; /* Ensure label is displayed above the input */
+    margin-bottom: 5px; /* Space between label and input */
 }

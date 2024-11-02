@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PickItUp</title>
+<<<<<<< HEAD
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+=======
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+>>>>>>> c35ca7bcb5ca8ebe2b8974e36cc19e51da0435e1
 </head>
 <body>
     <header>
@@ -32,6 +36,7 @@
                 <input type="text" id="clubName" placeholder="e.g., Cooking Club" required value="{{ request.form['clubName'] }}">
 
                 <label for="location">Location</label>
+<<<<<<< HEAD
                 <input type="text" id="location" placeholder="e.g., Room 101" required value="{{ request.form['location'] }}">
 
                 <label for="startTime">Post Time</label>
@@ -42,6 +47,20 @@
 
                 <button type="button" onclick="handleRequest('post')">Post Food</button>
 
+=======
+                <input type="text" id="location" placeholder="e.g., Fiterman 1001" required> <!-- Input for pickup location -->
+                <div class="time-container">
+                    <div class ="time-item">
+                        <label for="startTime">Post Time</label>
+                        <input type="time" id="startTime" required> <!-- Input for event start time -->
+                    </div>
+                <div class="time-item">
+                    <label for="pickupTime">Pickup By Time</label>
+                    <input type="time" id="pickupTime" required> <!-- Input for pickup time -->
+                </div>
+                </div>
+                <button type="button" onclick="postFood()">Post Food</button> <!-- Button to submit the form -->
+>>>>>>> c35ca7bcb5ca8ebe2b8974e36cc19e51da0435e1
             </form>            
             <div id="foodList"></div>
             <div id="formFeedback" style="display:none;"></div>
@@ -93,12 +112,18 @@
         </div>
     </div>
 
+<<<<<<< HEAD
     <!-- JavaScript file links -->
     <script src="{{ url_for('static', filename='js/food-requests.js') }}"></script>
     <script src="{{ url_for('static', filename='js/post-validation.js') }}"></script>
     <script src="{{ url_for('static', filename='js/form.js') }}"></script>
     <script src="{{ url_for('static', filename='js/main.min.js') }}"></script>
 
+=======
+    <script src="../js/foodRequests.js"></script>
+    <script src="../js/post-validation.js"></script>
+    <script src="../js/form.js"></script>
+>>>>>>> c35ca7bcb5ca8ebe2b8974e36cc19e51da0435e1
     <script>
         function filterOptions() {
             var categoryDropdown = document.getElementById("category");
