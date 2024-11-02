@@ -9,3 +9,12 @@ A web based program that allows club officers to post any leftover food they hav
 - Efficient Communication for Club Officers and Students: Streamlines communication between club officers with surplus food and students looking for free food on campus.
 - Sustainability-Focused: Minimizes food waste and fosters a culture of sharing resources.
 - Streamlined Chatbot: That gives an minimalist interface to streamline the 
+## Technologies Used
+- Python
+- Flask
+- SQLite3
+- HTML/CSS/JavaScript
+## Future Improvements
+- Intergrate with a Chatbot for better User Interface
+- Mobile Application
+ 
