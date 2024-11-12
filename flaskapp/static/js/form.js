@@ -50,6 +50,7 @@ document.getElementById('foodForm').addEventListener('submit', function(event) {
         // Clear the form
         this.reset();
     })
+    // Handle any errors that occurred during the fetch
     .catch(error => {
         feedback.textContent = "Failed to post food. Please try again.";
         feedback.style.color = "red";
