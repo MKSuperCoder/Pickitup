@@ -4,13 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PickItUp</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"></head>
 <body>
+    <!-- Nav Bar -->
     <header>
         <h1>PickItUp</h1>
+        <nav>
+            <ul>
+                <li><a href="#home-page">Home</a></li>
+                <li><a href="#post-food">Post Food</a></li>
+                <li><a href="#request-food">Request Food</a></li>
+            </ul>
+        </nav>
         <span>A BMCC Foodie's Favorite Tool</span>
     </header>
+    <!-- Post Page -->
+    <div id="post-page" class = "container"></div>
+   
 
     <main>
         <!--Post Form -->
@@ -47,6 +57,10 @@
             <div id="foodList"></div>
             <div id="formFeedback" style="display:none;"></div>
         </section>
+
+
+
+        <!--Request Page-->
         <!-- Request Form -->
         <section id="request-food">
             <h2>Students: Request Food</h2>
@@ -85,15 +99,7 @@
     <footer>
         <p>&copy; 2024 PickItUp</p>
     </footer>
-
-    <div id="responseModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2 id="modal-heading">Server Response</h2>
-            <pre id="res-code">Response details will appear here...</pre>
-        </div>
-    </div>
-
+</div>
     <!-- JavaScript file links -->
     <script src="{{ url_for('static', filename='js/food-requests.js') }}"></script>
     <script src="{{ url_for('static', filename='js/post-validation.js') }}"></script>
