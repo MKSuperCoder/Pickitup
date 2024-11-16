@@ -7,32 +7,54 @@ body {
 
 header {
     display: flex;
+    justify-content: flex-start; /* Space between title and nav */
+    align-items: center; /* Vertically center the items */
     background-color: #4CAF50;
     color: white;
-    padding: 25px 10px;
-    align-items: center;
+    padding: 13px 10px;
+    position: relative;
 }
+
 header h1 {
-    position: absolute; /* Use absolute positioning */
-    left: 50%; /* Move to the center */
-    transform: translateX(-50%); /* Offset to perfectly center */
-    margin: 0; /* Remove default margin */
+    margin: 0;
+    font-size: 35px;
 }
 
-header span {
-    margin-left: auto; /* Ensure span is pushed to the right */
+header nav {
+    display: flex; /* Keep the nav links in a row */
+    justify-content: center;
+    margin: 20px; 
+    margin-top: 25px;
 }
 
-nav a {
-    margin: 0 15px;
+header nav ul {
+    list-style: none;
+    display: flex; 
+    padding: 0;
+    margin: 0;
+}
+
+header nav li {
+    margin-right: 10px;
+}
+
+
+header nav a {
     color: white;
     text-decoration: none;
+    font-size: 18px;
 }
 
-nav a:hover {
+header nav a:hover {
     text-decoration: underline;
 }
 
+
+header span{
+    margin-left: auto;
+    font-size: 20px;
+    margin-right: 10px;
+}
 main {
     padding: 20px;
 }
@@ -49,7 +71,7 @@ h2 {
     margin-bottom: 20px;
     color: #4CAF50;
 }
-
+span
 input[type="text"],
 input[type="number"],
 select {
@@ -67,7 +89,7 @@ button {
     border: none;
     padding: 10px;
     cursor: pointer;
-    width: 100%; /* Makes the button full-width */
+    width: 100%;
 }
 
 button:hover {
@@ -93,13 +115,16 @@ footer {
     bottom: 0;
     width: 100%;
 }
-label{
+
+label {
     display: block;
-    margin-bottom: 5px; 
+    margin-bottom: 5px;
 }
+
 input {
     margin-bottom: 10px;
 }
+
 @media (max-width: 768px) {
     header {
         flex-direction: column; 
@@ -112,6 +137,11 @@ input {
         transform: none; 
         left: auto; 
         margin-bottom: 10px; 
+    }
+
+    header nav {
+        margin-top: 10px; /* Add some space between title and nav on small screens */
+        justify-content: center; /* Center the nav on smaller screens */
     }
 
     header span {
@@ -147,6 +177,7 @@ input {
     display: block; /* Ensure label is displayed above the input */
     margin-bottom: 2px; /* Space between label and input */
 }
-.time-item input{
+
+.time-item input {
     padding: 3px;
 }
