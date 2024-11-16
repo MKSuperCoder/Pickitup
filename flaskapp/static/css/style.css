@@ -4,7 +4,7 @@ body {
     padding: 0;
     background-color: #f8f8f8;
 }
-
+/* Navigation bar */
 header {
     display: flex;
     justify-content: flex-start; /* Space between title and nav */
@@ -162,7 +162,7 @@ input {
         padding: 30px; 
     }
 }
-
+/* CSS for Time input fields */
 .time-container {
     display: flex; /* Use Flexbox to layout the children */
     justify-content: space-between; /* Space between the input pairs */
