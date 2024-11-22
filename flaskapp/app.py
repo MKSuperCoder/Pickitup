@@ -6,7 +6,7 @@ import logging
 from logging import FileHandler
 
 
-
+# Create a Flask app
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 
