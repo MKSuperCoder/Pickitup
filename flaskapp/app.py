@@ -23,14 +23,21 @@ if not os.path.isfile('app.db'):
 def index():
     return render_template("index.html")
 
+@app.route('/about')
+def about():
+    return render_template("about.html")
+
+@app.route('/request')
+def request_food():
+    return render_template("request.html")
+
+
 def isValid(email):
     regex = re.compile(r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+')
     if re.fullmatch(regex, email):
       return True
     else:
       return False
-
-
 
 food_items = []
 @app.route('/event', methods=['POST', 'GET'])

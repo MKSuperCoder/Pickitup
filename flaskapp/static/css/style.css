@@ -38,6 +38,16 @@ header nav li {
     margin-right: 10px;
 }
 
+h1 a {
+    text-decoration: none; 
+    color: inherit; 
+}
+
+h1 a:hover {
+    color: #007bff; 
+}
+
+
 
 header nav a {
     color: white;
